@@ -1,3 +1,5 @@
+
+import"../Formulario/Formulario.css"
 export function Formulario() {
   return (
     <>
@@ -6,17 +8,17 @@ export function Formulario() {
           <div className="col-12 col-md-6">
             <img src="../../src/assets/logotipo.png" alt="logo" />
 
-            <form className="border rounded p-4 mt-5">
+            <form className="border rounded p-4 mt-5 fondo2 text-white">
               <h2>CUIDADO EN CASA APP</h2>
 
-              <div class=" input-group mb-3 mt-5 ">
-                <span class="input-group-text" id="basic-addon1">
+              <div class=" input-group mb-3 mt-5  ">
+                <span class="input-group-text " id="basic-addon1">
                   <i class="bi bi-person-vcard"></i>
                 </span>
                 <input
                   type="text"
                   class="form-control"
-                  placeholder="Numero de cedula"
+                  placeholder="Numero de cedula "
                   id="identificacion"
                   onChange={function (evento) {
                     guadarCedula(evento.target.value);
