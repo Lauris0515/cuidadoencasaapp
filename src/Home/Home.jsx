@@ -1,8 +1,11 @@
+import "./Home.css"
+import basedatos from "../utils/basedatos.json"
+
+
 export function Home() {
-  let paciente = "Carlos Pérez";
 
   return (
-    //zona de renderizado
+   
     <>
       <section className="container mt-5">
         <div className="row">
@@ -15,36 +18,41 @@ export function Home() {
             </h2>
             </div> 
           </div>
-          
-      </section>
+        </section>
       <hr />
-      <section className="container">
-        <div className="row">
-          <div className="col-12 col-md-5">
-            <h5>
-              PACIENTE {basedatos[0].nombreUsuario}, estas son tus proximas
-              citas:
-            </h5>
-          </div>
-        </div>
-      </section>
       <section>
-        <section className="container my-5">
-          <div className="row row-cols-1 row-cols-md-3">
-            {basedatos[0].citasMedicas.map(function (cita) {
-              return (
+      <section className="container">
+        <div className="row-cols-1 row-cols-md-1 g-3">
+          <div className="row row-cols-md-3">
+           {
+            basedatos.map(function(paciente){
+
+              return(
                 <div className="col">
-                  <div className="card h-100 shadow px-2">
-                    <h3>{cita.especialidad}</h3>
-                    <h4>{cita.fecha}</h4>
-                    <h4>{cita.direccion}</h4>
+                  <div className="card h-100 shadow">
+                  <div className="col my-5">
+                    <div className="card h-100 shadow px-2">
+                      <div>
+                        <h3>{paciente.nombre}</h3>
+                        <h3>{paciente.documento}</h3>
+                        <h3>{paciente.foto}</h3>
+                        <h3>{paciente.area}</h3>
+                        <h3>{paciente.medicamentos}</h3>
+                        <h3>{paciente.visitasEnfemeria}</h3>
+                        <h3>{paciente.visitasMedicas}</h3>
+                      </div>
+                    </div>
+                  </div>
                   </div>
                 </div>
-              );
-            })}
-          </div>
-        </section>
-      </section>
-    </>
-  );
-}
+              )
+
+            })
+           }
+           </div>
+           </div>
+          </section> 
+        </section> 
+        </>
+      );
+      } 
