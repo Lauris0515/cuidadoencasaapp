@@ -1,6 +1,21 @@
 
+import{useNavigate} from "react-router-dom"
+
 import"../Formulario/Formulario.css"
 export function Formulario() {
+
+
+  let enrutador=useNavigate() //activo el enrutador entre componentes
+
+  function procesarFormulario(evento){
+    evento.preventDefault()
+
+    enrutador("/home")
+
+
+  }
+
+
   return (
     <>
       <section className="container">
@@ -8,7 +23,7 @@ export function Formulario() {
           <div className="col-12 col-md-6">
             <img src="../../src/assets/logotipo.png" alt="logo" />
 
-            <form className="border rounded p-4 mt-5 fondo2 text-white">
+            <form className="border rounded p-4 mt-5 fondo2 text-white" onSubmit={procesarFormulario}>
               <h2>CUIDADO EN CASA APP</h2>
 
               <div class=" input-group mb-3 mt-5  ">
