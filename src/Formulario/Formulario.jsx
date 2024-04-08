@@ -1,8 +1,16 @@
 
 import{useNavigate} from "react-router-dom"
 
+import basedatos from "../utils/basedatos.json"
+
 import"../Formulario/Formulario.css"
+import Swal from "sweetalert2"
+import { useState } from "react"
+
 export function Formulario() {
+
+
+  const[vercedula,guardarCedula]=useState("")
 
 
   let enrutador=useNavigate() //activo el enrutador entre componentes
@@ -10,8 +18,26 @@ export function Formulario() {
   function procesarFormulario(evento){
     evento.preventDefault()
 
-    enrutador("/home")
 
+    let busqueda=basedatos.find(function(usuario){
+      return(vercedula==usuario.documento)
+    })
+
+    console.log(busqueda)
+
+    if(busqueda==undefined){
+
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "verifica tus datos!",
+      });
+    } else {
+
+      enrutador("/home",{state:{dato:busqueda}})
+
+    }
+ 
 
   }
 
@@ -36,7 +62,7 @@ export function Formulario() {
                   placeholder="Numero de cedula "
                   id="identificacion"
                   onChange={function (evento) {
-                    guadarCedula(evento.target.value);
+                    guardarCedula(evento.target.value);
                   }}
                 />
               </div>

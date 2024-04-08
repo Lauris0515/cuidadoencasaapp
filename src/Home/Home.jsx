@@ -1,10 +1,12 @@
 import "./Home.css"
 import basedatos from "../utils/basedatos.json"
 
+import {useLocation} from "react-router-dom"
+
 
 export function Home() {
 
-    
+ 
 
     return (
    
@@ -14,7 +16,7 @@ export function Home() {
             <div className="col-12 col-md-6">
               <h3><span className="text-white">Bienvenido a cuidado en casa</span></h3>
               <h2 className="fondoletra">
-                HOLA:<span className="text-white">{basedatos[0].nombre}</span>
+                HOLA: <span className="text-white">{basedatos[0].nombre}</span>
               </h2>
               <img src={basedatos[0].foto} alt="" className="img-fluid w-25"/>
             </div> 
